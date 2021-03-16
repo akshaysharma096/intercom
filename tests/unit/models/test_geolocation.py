@@ -6,7 +6,6 @@ from src.models import GeoLocation
 
 
 class TestGeoLocation:
-
     """
         Unit tests to test the GeoLocation model
     """
@@ -22,7 +21,7 @@ class TestGeoLocation:
         ]
     )
     def test_valid_geolocation(self, longitude, latitude):
-        assert isinstance(GeoLocation(longitude, latitude), GeoLocation) == True
+        assert isinstance(GeoLocation(longitude, latitude), GeoLocation)
 
     def test_none_longitude(self):
         random_latitude = uniform(-90.0, 90)
