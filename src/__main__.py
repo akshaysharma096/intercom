@@ -1,3 +1,5 @@
+from tabulate import tabulate
+
 from src.constants import (
     DUBLIN_LATITUDE,
     DUBLIN_LONGITUDE,
@@ -23,7 +25,9 @@ def calculate_customers_nearby():
     :return: None
     :rtype: None
     """
-    CustomerDb.invite_customers(DUBLIN_LONGITUDE, DUBLIN_LATITUDE, CUSTOMER_DISTANCE)
+    customers = CustomerDb.invite_customers(DUBLIN_LONGITUDE, DUBLIN_LATITUDE, CUSTOMER_DISTANCE)
+    customer_list = [[customer.user_id, customer.name] for customer in customers]
+    print(tabulate(customer_list, headers=["User_ID", "Full Name"]))
 
 
 entry_point()
