@@ -6,7 +6,7 @@ class Customer:
         Customer Class, to store information about a customer.
     """
 
-    def __init__(self, user_id, name: str, geo_location: GeoLocation):
+    def __init__(self, user_id: int, name: str, geo_location: GeoLocation):
         self._user_id = user_id
         self._name = name
         self._geo_location = geo_location
