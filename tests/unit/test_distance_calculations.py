@@ -19,8 +19,8 @@ class TestDistanceCalculations:
     @pytest.mark.parametrize(
         'geo_distance_1, geo_distance_2, actual_distance',
         [
-            (GeoLocation(-6.043701, 52.986375), GeoLocation(-10.27699, 51.92893), 310.2771),
-            (GeoLocation(35.00875, 61.09623), GeoLocation(-35.97992, -52.33815), 14097.4504),
+            (GeoLocation(-6.043701, 52.986375), GeoLocation(-10.27699, 51.92893), 310.277),
+            (GeoLocation(35.00875, 61.09623), GeoLocation(-35.97992, -52.33815), 14097.450),
             (GeoLocation(56.49281, 16.81308), GeoLocation(59.97301, 43.04321), 2938.425)
         ]
     )
