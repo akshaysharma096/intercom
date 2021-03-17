@@ -2,9 +2,3 @@
 
 pytest==6.2.2
 tox==3.23.0
-black==19.10b0
-flake8==3.7.9
-bandit==1.6.2
-safety==1.8.5
-mypy==0.761
-hypothesis==5.1.2

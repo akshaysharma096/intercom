@@ -11,7 +11,8 @@ integration: ## Run integration tests
 	tox -e integration
 
 test: ## Run tests
-	tox --parallel--safe-build
+	tox --parallel--
+	safe-build
 
 unit: ## Run unit tests
 	tox -e unit
