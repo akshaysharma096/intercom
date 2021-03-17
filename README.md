@@ -21,7 +21,7 @@ forget, you'll need to convert degrees to radians.
 
 ### Solution
 1. Technical Problem:
-    - The input file has been stored in the ``store`` folder.
+    - The input file has been stored in the ``src/store`` folder.
     - Added docker integration for better usage and portability.
     - Add tests
         - Unit Tests
