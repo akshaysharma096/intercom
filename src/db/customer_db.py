@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Written by Akshay Sharma, <akshay.sharma09695@gmail.com>
+
 import json
 from typing import Generator
 
@@ -25,19 +28,37 @@ class CustomerDb:
                 yield customer_obj
 
     @staticmethod
-    def invite_customers(longitude: float, latitude: float, max_customer_distance: float) -> list:
+    def invite_customers(longitude: float, latitude: float, max_customer_distance: float) -> dict:
         """
         Function to read from the file, and then calculate the the customer which are eligible
 
         :param longitude: Longitude of the office
         :param latitude: Latitude of the office
         :param max_customer_distance: Max distance under-which customers should be invited.
-        :return: A list of customers who are eligible for invitation
-        :rtype: list
+        :return: A dictionary with id as key - of customers who are eligible for invitation
+        :rtype: dict
         """
+        if longitude is None:
+            raise ValueError('Longitude cannot be blank.')
+
+        if latitude is None:
+            raise ValueError('Latitude cannot be blank.')
+
+        if not isinstance(longitude, float) and not isinstance(longitude, int):
+            raise ValueError('Longitude must be a float value.')
+
+        if not isinstance(latitude, float) and not isinstance(latitude, int):
+            raise ValueError('Latitude must be a float value')
+
+        if not isinstance(max_customer_distance, float) and not isinstance(max_customer_distance, int):
+            raise ValueError('Max Customer Distance must be a float value.')
+
+        if max_customer_distance < 0:
+            raise ValueError('Max Customer Distance cannot be less than 0.')
+
         source = GeoLocation(longitude, latitude)
         result = dict()
         for customer in CustomerDb.all():
             if is_under_distance(source, customer.geo_location, max_customer_distance):
                 result[customer.user_id] = customer
-        return [value for (key, value) in sorted(result.items())]
+        return result

@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Written by Akshay Sharma, <akshay.sharma09695@gmail.com>
+
 import math
 
 
@@ -7,9 +10,10 @@ class GeoLocation:
     """
 
     def __init__(self, longitude: float, latitude: float):
-        if not isinstance(longitude, float):
+        if not isinstance(longitude, float) and not isinstance(longitude, int):
             raise ValueError('Longitude has to be a float value.')
-        if not isinstance(latitude, float):
+
+        if not isinstance(latitude, float) and not isinstance(longitude, int):
             raise ValueError('Longitude has to be a float value.')
 
         if longitude is None:

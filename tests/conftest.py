@@ -1,25 +1,43 @@
+import random
+import string
+
 import pytest
+
+from src.models import GeoLocation
 
 
 @pytest.fixture(scope='module')
-def expected_output():
-    result_value = """  User_ID  Full Name
----------  -----------------
-        4  Ian Kehoe
-        5  Nora Dempsey
-        6  Theresa Enright
-        8  Eoin Ahearn
-       11  Richard Finnegan
-       12  Christina McArdle
-       13  Olive Ahearn
-       15  Michael Ahearn
-       17  Patricia Cahill
-       23  Eoin Gallagher
-       24  Rose Enright
-       26  Stephen McArdle
-       29  Oliver Ahearn
-       30  Nick Enright
-       31  Alan Behan
-       39  Lisa Ahearn
-"""
-    return result_value
+def random_name():
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(10))
+
+
+@pytest.fixture(scope='module')
+def random_longitude():
+    return random.uniform(-180.0, 180.0)
+
+
+@pytest.fixture(scope='module')
+def random_latitude():
+    return random.uniform(-90.0, 90.0)
+
+
+@pytest.fixture(scope='module')
+def random_distance():
+    return random.uniform(50, 1000)
+
+
+@pytest.fixture(scope='module')
+def random_geolocations():
+    longitude_1 = random.uniform(-180.0, 180.0)
+    latitude_1 = random.uniform(-90.0, 90.0)
+    longitude_2 = random.uniform(-180.0, 180.0)
+    latitude_2 = random.uniform(-90.0, 90.0)
+    return GeoLocation(longitude_1, latitude_1), GeoLocation(longitude_2, latitude_2)
+
+
+@pytest.fixture(scope='module')
+def random_geolocation():
+    longitude_1 = random.uniform(-180.0, 180.0)
+    latitude_1 = random.uniform(-90.0, 90.0)
+    return GeoLocation(longitude_1, latitude_1)

@@ -12,6 +12,12 @@ def degree_to_radians(degrees: float) -> float:
     :return: Value in radians
     :rtype: float
     """
+    if degrees is None:
+        raise ValueError('Degrees cannot be empty.')
+
+    if not isinstance(degrees, float) and not isinstance(degrees, int):
+        raise ValueError('Degrees must be a numerical value.')
+
     return degrees * math.pi / 180
 
 
@@ -24,6 +30,14 @@ def calculate_geo_distance(location1: GeoLocation, location2: GeoLocation) -> fl
     :return: Total distance in kilo-meters between the two Geolocation objects
     :rtype: float
     """
+    if location1 is None:
+        raise ValueError('Location-1 cannot be empty.')
+    if location2 is None:
+        raise ValueError('Location-2 cannot be empty.')
+
+    if not isinstance(location1, GeoLocation) or not isinstance(location2, GeoLocation):
+        raise ValueError('Both of the locations must be GeoLocation objects.')
+
     delta = degree_to_radians(location1.longitude - location2.longitude)
     radian_latitude_1 = degree_to_radians(location1.latitude)
     radian_latitude_2 = degree_to_radians(location2.latitude)
@@ -46,6 +60,17 @@ def is_under_distance(source: GeoLocation, target: GeoLocation, limit: float) ->
     :return: Whether the distance between two points on earth, under the limit
     :rtype: bool
     """
+    if not isinstance(source, GeoLocation):
+        raise ValueError('Source location must be a Geolocation object.')
+
+    if not isinstance(target, GeoLocation):
+        raise ValueError('Target location must be a Geolocation object.')
+
+    if not isinstance(limit, float) and not isinstance(limit, int):
+        raise ValueError('Max limit must be numerical in nature.')
+
+    if limit < 0:
+        raise ValueError('Limit cannot be less than zero.')
 
     distance_between_points = calculate_geo_distance(source, target)
     return distance_between_points <= limit
