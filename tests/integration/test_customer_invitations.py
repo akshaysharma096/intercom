@@ -7,19 +7,15 @@ from src.constants import (
     DUBLIN_LATITUDE,
     DUBLIN_LONGITUDE, CUSTOMER_DISTANCE
 )
+import subprocess
 from src.db import CustomerDb
 
 
 class TestCustomerInvitations:
 
-    # def test_customer_invitation(self, expected_invited_customers, capsys):
-    #
-    #     invited_customer_result = subprocess.run(['python3', '-m', 'src'], stdout=subprocess.PIPE)
-    #     captured = capsys.readouterr()
-    #     print("Captured: {0}".format(captured.out))
-    #     # print(expected_invited_customers)
-    #     # print(invited_customer_result)
-    #     assert invited_customer_result == expected_invited_customers
+    def test_customer_invitation(self, expected_invited_customers):
+        invited_customer_result = subprocess.run(['python3', '-m', 'src'], stdout=subprocess.PIPE)
+        assert invited_customer_result.stdout == expected_invited_customers
 
     def test_customer_db(self):
         customers = CustomerDb.all()
