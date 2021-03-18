@@ -22,7 +22,6 @@ class Customer:
         if name is None:
             raise ValueError('Name cannot be blank.')
 
-
         if geo_location is None:
             raise ValueError('GeoLocation cannot be blank.')
         if not isinstance(geo_location, GeoLocation):

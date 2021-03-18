@@ -11,10 +11,10 @@ class GeoLocation:
 
     def __init__(self, longitude: float, latitude: float):
         if not isinstance(longitude, float) and not isinstance(longitude, int):
-            raise ValueError('Longitude has to be a float value.')
+            raise ValueError('Longitude has to be a numerical value.')
 
-        if not isinstance(latitude, float) and not isinstance(longitude, int):
-            raise ValueError('Longitude has to be a float value.')
+        if not isinstance(latitude, float) and not isinstance(latitude, int):
+            raise ValueError('Latitude has to be a numerical value.')
 
         if longitude is None:
             raise ValueError('Longitude cannot be empty.')
