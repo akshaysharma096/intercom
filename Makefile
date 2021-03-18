@@ -17,6 +17,9 @@ test: ## Run tests
 unit: ## Run unit tests
 	tox -e unit
 
+safety:
+	tox -e safety
+
 clean: ## Remove project artifacts
 	find . -name '*.pyc' -delete
 	find . -name '__pycache__' -type d | xargs rm -rf
