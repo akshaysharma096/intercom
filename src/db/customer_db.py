@@ -58,7 +58,7 @@ class CustomerDb:
             raise ValueError('Max Customer Distance cannot be less than 0.')
 
         source = GeoLocation(longitude, latitude)
-        # Take of duplicate IDs
+        # Take care of duplicate IDs
         result = defaultdict(list)
         for customer in CustomerDb.all():
             if is_under_distance(source, customer.geo_location, max_customer_distance):
