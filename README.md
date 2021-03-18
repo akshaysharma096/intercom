@@ -1,7 +1,7 @@
 Intercom Code Challenge
 =======================
 
-### Technical problem
+### Challenge Description
 
 The code challenge has 2 parts:
 
@@ -27,7 +27,9 @@ forget, you'll need to convert degrees to radians.
         - Unit Tests
         - Integration Tests
     
-    - Used type hint for reducing type mistakes
+    - Used type hint for reducing type mistakes.
+    - Add libraries for security check and added a command to run those checks as well.
+    - Add object level validations for a Customer or GeoLocation object.
 
     #### Requirements
     * Docker
