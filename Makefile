@@ -2,10 +2,10 @@
 .DEFAULT_GOAL := help
 
 build: ## Build docker image
-	docker build --tag intercom .
+	docker build --tag intercom-test-akshaysharma .
 
 run: ## Run docker image
-	docker run --rm intercom
+	docker run --rm intercom-test-akshaysharma
 
 integration: ## Run integration tests
 	tox -e integration
