@@ -45,13 +45,13 @@ class CustomerDb:
             raise ValueError('Latitude cannot be blank.')
 
         if not isinstance(longitude, float) and not isinstance(longitude, int):
-            raise ValueError('Longitude must be a float value.')
+            raise ValueError('Longitude must be a numerical value.')
 
         if not isinstance(latitude, float) and not isinstance(latitude, int):
-            raise ValueError('Latitude must be a float value')
+            raise ValueError('Latitude must be a numerical value.')
 
         if not isinstance(max_customer_distance, float) and not isinstance(max_customer_distance, int):
-            raise ValueError('Max Customer Distance must be a float value.')
+            raise ValueError('Max Customer Distance must be a numerical value.')
 
         if max_customer_distance < 0:
             raise ValueError('Max Customer Distance cannot be less than 0.')
