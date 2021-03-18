@@ -7,14 +7,14 @@ build: ## Build docker image
 run: ## Run docker image
 	docker run --rm intercom-test-akshaysharma
 
-integration: ## Integration tests
+integration_tests: ## Integration tests
 	tox -e integration
 
 test: ## Run full-test suite
 	tox --parallel--
 	safe-build
 
-unit: ## Unit tests
+unit_tests: ## Unit tests
 	tox -e unit
 
 safety: ## Run safety checks.

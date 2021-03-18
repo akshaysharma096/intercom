@@ -47,6 +47,11 @@ forget, you'll need to convert degrees to radians.
         ``` bash
         $ make test
         ```
+      #### How to run security tests
+    
+        ``` bash
+        $ make safety
+        ```
       
 2. **Proudest Achievement**:
    
