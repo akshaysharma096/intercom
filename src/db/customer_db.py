@@ -2,6 +2,7 @@
 # Written by Akshay Sharma, <akshay.sharma09695@gmail.com>
 
 import json
+from collections import defaultdict
 from typing import Generator
 
 from src.constants import DATA_STORE_PATH
@@ -57,8 +58,9 @@ class CustomerDb:
             raise ValueError('Max Customer Distance cannot be less than 0.')
 
         source = GeoLocation(longitude, latitude)
-        result = dict()
+        # Take of duplicate IDs
+        result = defaultdict(list)
         for customer in CustomerDb.all():
             if is_under_distance(source, customer.geo_location, max_customer_distance):
-                result[customer.user_id] = customer
+                result[customer.user_id].append(customer)
         return result

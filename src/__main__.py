@@ -29,9 +29,10 @@ def calculate_customers_nearby():
     :rtype: None
     """
     result_set = CustomerDb.invite_customers(DUBLIN_LONGITUDE, DUBLIN_LATITUDE, CUSTOMER_DISTANCE)
-    customers = [result_set[key] for key in sorted(result_set.keys())]
+    customers = [customer_obj for key in sorted(result_set.keys()) for customer_obj in result_set[key] ]
     customer_list = [[customer.user_id, customer.name] for customer in customers]
     print(tabulate(customer_list, headers=["ID", "Name"]))
 
 
 entry_point()
+
